@@ -1,9 +1,14 @@
 USE [GartmanReport]
 GO
 
+/****** Object:  StoredProcedure [dbo].[JT_Printed_But_Not_Shipped_Loc50]    Script Date: 10/21/2014 10:46:30 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
 
 
-ALTER PROC [dbo].[JT_Printed_But_Not_Shipped_Loc50] AS
 
 /*------------------------------------------------------*
 ** James Tuttle											*	
@@ -15,6 +20,9 @@ ALTER PROC [dbo].[JT_Printed_But_Not_Shipped_Loc50] AS
 ** ADDED: Ship VIA Code 6								*
 **------------------------------------------------------*/
 
+
+
+ALTER PROC [dbo].[JT_Printed_But_Not_Shipped_Loc50] AS
 
 
 /* Query to look at orders printed but not shipped for Will Call */
@@ -38,13 +46,15 @@ SELECT DISTINCT *
 								AND ohviac IN (''1'', ''6'')
 								AND ohticp = ''Y''
 								AND ohprlo = 50
-								AND ohotyp NOT IN (''SA'', ''DP'')
-								AND (olinvu = '' '' OR olinvu = ''S'' OR olinvu = ''X'' OR olinvu = ''M'') 
-								/*AND ohprtr IN (''KSL1'',''KSL2'')  */
+								AND ohotyp NOT IN (''SA'', ''DP'',''MM'')
+								AND (olinvu = '' '' OR olinvu = ''S'' OR olinvu = ''X'' OR olinvu = ''M'' OR olinvu != ''T'') 
+						/*	 	AND ohprtr IN (''KCL1'',''KCL2'')  /* --- added printer IDs fo Will Call to ONLY look at those print jobs --- */	*/
 					')
 ORDER BY [Status] DESC
 
+-- JT_Printed_But_Not_Shipped_Loc50
 
 
+GO
 
 
