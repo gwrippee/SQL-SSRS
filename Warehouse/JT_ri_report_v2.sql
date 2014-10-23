@@ -19,9 +19,11 @@ ALTER PROC [dbo].[JT_ri_report_v2] AS
 ** that were created since the LastRan		*
 ** TimeStamp.								*
 **===========================================*/ 
-
-
-
+--
+--James Tuttle		Date: 10/23/2014
+-- 
+--Added $ amount and reason code
+---------------------------------------------
 
 DECLARE @LastRan AS VARCHAR(20)		-- Timestamp from local table JT_JobLog_v2
 DECLARE @Query AS VARCHAR(600)		-- Pass query to AS400
@@ -33,19 +35,21 @@ WHERE JT_JobLog_v2.JobName = 'JT_ri_report';
 
 
 
-SELECT ohco as Company,
-      ohloc as Location,
-      ohotyp as Order_Type,
-      ohord# as [Order],
-      ohodat as [Date],
-      ohtime as [Time],
-      ohuser as [User]
+SELECT ohco		AS Company
+      ,ohloc	AS Location
+      ,ohotyp	AS Order_Type
+      ,ohord#	AS [Order]
+      ,ohodat	AS [Date]
+      ,ohtime	AS [Time]
+      ,ohuser	AS [User]
+	  ,ohtotl	AS [Total_Amount]
+	  ,ohcred AS	[Reason]
 FROM OPENQUERY (GSFL2K, '
-SELECT *
-FROM OOHEAD
-WHERE ohotyp IN(''IR'', ''RI'')
-ORDER BY ohodat DESC
-')
+				SELECT *
+				FROM OOHEAD
+				WHERE ohotyp IN(''IR'', ''RI'')
+				ORDER BY ohodat DESC
+				')
 where CONVERT(VARCHAR(10), ohodat, 126) + ' ' +
 		  case len(ohtime) 
 				when 5 then '0' + substring(CONVERT(VARCHAR(7), ohtime),1,1) + ':' + substring(CONVERT(VARCHAR(7), ohtime),2,2) + ':' + substring(CONVERT(VARCHAR(7), ohtime),4,2)
@@ -71,8 +75,8 @@ SELECT * FROM JT_JobLog_v2
 DELETE FROM JT_JobLog_v2
 WHERE JobName = 'JT_ri_report'
 
-UPDATE JAMEST.dbo.JT_JobLog_v2
-SET JAMEST.dbo.JT_JobLog_v2.LastRan = '2011-07-13 11:00:00'
+UPDATE dbo.JT_JobLog_v2
+SET dbo.JT_JobLog_v2.LastRan = '2011-07-13 11:00:00'
 
 ------------------------------------------------------------------------------------------------------------------------------------------------   
 --> used at the column level <------------------------------------------------------------------------------------------------------------------
