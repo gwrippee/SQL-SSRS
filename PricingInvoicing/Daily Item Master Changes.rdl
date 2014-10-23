@@ -15,7 +15,7 @@
         <CommandText>select * from openquery (gsfl2k,'
 select *
 from itemmain
-where IMMWS&lt;&gt;''IMLEADTM''
+where immdat = (current_date - 1 day)
 ')</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
