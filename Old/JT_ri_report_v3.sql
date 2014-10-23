@@ -11,23 +11,23 @@ WHERE JT_JobLog_v2.JobName = 'JT_ri_report';
 -- a Common Table Expression
 WITH cte AS 
 (
-SELECT ohco,
-      ohloc,
-      ohotyp,
-      ohord#,
-      ohodat,
-      ohtime,
-      ohuser, 
-      CONVERT(VARCHAR(10), ohodat, 126) as [Date],
-      testtime = case len(ohtime) 
-            when 5 then '0' + substring(CONVERT(VARCHAR(7), ohtime),1,1) + ':' + substring(CONVERT(VARCHAR(7), ohtime),2,2) + ':' + substring(CONVERT(VARCHAR(7), ohtime),4,2)
-            else substring(CONVERT(VARCHAR(7), ohtime),1,2) + ':' + substring(CONVERT(VARCHAR(7), ohtime),3,2) + ':' + substring(CONVERT(VARCHAR(7), ohtime),5,2) 
-      end
-FROM OPENQUERY (GSFL2K, '
-SELECT *
-FROM OOHEAD
-WHERE ohotyp IN(''IR'', ''RI'')
-ORDER BY ohodat DESC
+	SELECT ohco,
+		  ohloc,
+		  ohotyp,
+		  ohord#,
+		  ohodat,
+		  ohtime,
+		  ohuser, 
+		  CONVERT(VARCHAR(10), ohodat, 126) as [Date],
+		  testtime = case len(ohtime) 
+				when 5 then '0' + substring(CONVERT(VARCHAR(7), ohtime),1,1) + ':' + substring(CONVERT(VARCHAR(7), ohtime),2,2) + ':' + substring(CONVERT(VARCHAR(7), ohtime),4,2)
+				else substring(CONVERT(VARCHAR(7), ohtime),1,2) + ':' + substring(CONVERT(VARCHAR(7), ohtime),3,2) + ':' + substring(CONVERT(VARCHAR(7), ohtime),5,2) 
+		  end
+	FROM OPENQUERY (GSFL2K, '
+	SELECT *
+	FROM OOHEAD
+	WHERE ohotyp IN(''IR'', ''RI'')
+	ORDER BY ohodat DESC
 ')
 )
 --##############################################
