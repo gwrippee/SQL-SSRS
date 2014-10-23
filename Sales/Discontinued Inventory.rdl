@@ -126,13 +126,13 @@
                   <Width>1in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1in</Width>
+                  <Width>0.59375in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1in</Width>
+                  <Width>0.71875in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.98958in</Width>
+                  <Width>1.8125in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -150,8 +150,7 @@
                                 <TextRun>
                                   <Value>ITEM</Value>
                                   <Style>
-                                    <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -186,8 +185,7 @@
                                 <TextRun>
                                   <Value>DESCRIPTION</Value>
                                   <Style>
-                                    <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -222,8 +220,7 @@
                                 <TextRun>
                                   <Value>COLOR</Value>
                                   <Style>
-                                    <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -258,8 +255,7 @@
                                 <TextRun>
                                   <Value>ON Hand</Value>
                                   <Style>
-                                    <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -296,8 +292,7 @@
                                 <TextRun>
                                   <Value>Available</Value>
                                   <Style>
-                                    <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -334,8 +329,7 @@
                                 <TextRun>
                                   <Value>Stock Details</Value>
                                   <Style>
-                                    <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
                                   </Style>
@@ -377,8 +371,7 @@
                                 <TextRun>
                                   <Value>=Fields!ITEM.Value</Value>
                                   <Style>
-                                    <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -411,8 +404,7 @@
                                 <TextRun>
                                   <Value>=Fields!ITEMDESCRIPTION.Value</Value>
                                   <Style>
-                                    <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -445,8 +437,7 @@
                                 <TextRun>
                                   <Value>=Fields!COLOR.Value</Value>
                                   <Style>
-                                    <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -479,8 +470,7 @@
                                 <TextRun>
                                   <Value>=Fields!SALESUOMONHANDRESULT.Value</Value>
                                   <Style>
-                                    <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <Format>n2</Format>
                                     <Color>#4d4d4d</Color>
                                   </Style>
@@ -516,8 +506,7 @@
                                 <TextRun>
                                   <Value>=Fields!SALESUOMAVAILRESULT.Value</Value>
                                   <Style>
-                                    <FontFamily>Tahoma</FontFamily>
-                                    <FontSize>9pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <Format>n2</Format>
                                     <Color>#4d4d4d</Color>
                                   </Style>
@@ -577,7 +566,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>1in</Size>
+                    <Size>0.77083in</Size>
                     <CellContents>
                       <Textbox Name="Textbox1">
                         <CanGrow>true</CanGrow>
@@ -588,8 +577,7 @@
                               <TextRun>
                                 <Value>VENDOR</Value>
                                 <Style>
-                                  <FontFamily>Tahoma</FontFamily>
-                                  <FontSize>9pt</FontSize>
+                                  <FontSize>8pt</FontSize>
                                   <FontWeight>Bold</FontWeight>
                                   <Color>White</Color>
                                 </Style>
@@ -616,7 +604,9 @@
                   <TablixMembers>
                     <TablixMember />
                   </TablixMembers>
+                  <FixedData>true</FixedData>
                   <KeepWithGroup>After</KeepWithGroup>
+                  <RepeatOnNewPage>true</RepeatOnNewPage>
                 </TablixMember>
                 <TablixMember>
                   <Group Name="VENDOR">
@@ -630,7 +620,7 @@
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>1in</Size>
+                    <Size>0.77083in</Size>
                     <CellContents>
                       <Textbox Name="VENDOR1">
                         <CanGrow>true</CanGrow>
@@ -641,8 +631,7 @@
                               <TextRun>
                                 <Value>=Fields!VENDOR.Value</Value>
                                 <Style>
-                                  <FontFamily>Tahoma</FontFamily>
-                                  <FontSize>9pt</FontSize>
+                                  <FontSize>8pt</FontSize>
                                   <Color>#4d4d4d</Color>
                                 </Style>
                               </TextRun>
@@ -674,7 +663,7 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.5in</Height>
-            <Width>10.89583in</Width>
+            <Width>8.80208in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -689,7 +678,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>10.89583in</Width>
+      <Width>8.83333in</Width>
       <Page>
         <PageFooter>
           <Height>0.01042in</Height>
@@ -701,12 +690,14 @@
             </Border>
           </Style>
         </PageFooter>
+        <PageHeight>8.5in</PageHeight>
+        <PageWidth>11in</PageWidth>
         <InteractiveHeight>0in</InteractiveHeight>
         <InteractiveWidth>8.5in</InteractiveWidth>
-        <LeftMargin>1in</LeftMargin>
-        <RightMargin>1in</RightMargin>
-        <TopMargin>1in</TopMargin>
-        <BottomMargin>1in</BottomMargin>
+        <LeftMargin>0.25in</LeftMargin>
+        <RightMargin>0.25in</RightMargin>
+        <TopMargin>0.25in</TopMargin>
+        <BottomMargin>0.25in</BottomMargin>
         <Style />
       </Page>
     </ReportSection>

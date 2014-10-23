@@ -127,16 +127,16 @@ and ibitem in (
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.57292in</Width>
+                  <Width>0.4375in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.39583in</Width>
+                  <Width>0.65625in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1in</Width>
+                  <Width>0.66667in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.55208in</Width>
+                  <Width>1.13541in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -461,7 +461,9 @@ and ibitem in (
             <TablixRowHierarchy>
               <TablixMembers>
                 <TablixMember>
+                  <FixedData>true</FixedData>
                   <KeepWithGroup>After</KeepWithGroup>
+                  <RepeatOnNewPage>true</RepeatOnNewPage>
                 </TablixMember>
                 <TablixMember>
                   <Group Name="Details" />
@@ -471,7 +473,7 @@ and ibitem in (
             <NoRowsMessage>N/A</NoRowsMessage>
             <DataSetName>DataSet1</DataSetName>
             <Height>0.5in</Height>
-            <Width>4.52083in</Width>
+            <Width>2.89583in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -486,12 +488,14 @@ and ibitem in (
           </Border>
         </Style>
       </Body>
-      <Width>4.52083in</Width>
+      <Width>3.03125in</Width>
       <Page>
-        <LeftMargin>1in</LeftMargin>
-        <RightMargin>1in</RightMargin>
-        <TopMargin>1in</TopMargin>
-        <BottomMargin>1in</BottomMargin>
+        <PageHeight>8.5in</PageHeight>
+        <PageWidth>11in</PageWidth>
+        <LeftMargin>0.25in</LeftMargin>
+        <RightMargin>0.25in</RightMargin>
+        <TopMargin>0.25in</TopMargin>
+        <BottomMargin>0.25in</BottomMargin>
         <Style />
       </Page>
     </ReportSection>
