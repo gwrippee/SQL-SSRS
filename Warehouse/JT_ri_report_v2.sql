@@ -43,10 +43,12 @@ SELECT ohco		AS Company
       ,ohtime	AS [Time]
       ,ohuser	AS [User]
 	  ,ohtotl	AS [Total_Amount]
-	  ,ohcred AS	[Reason]
+	  ,ohcred	AS [Reason]
+	  ,crrdes	AS [Description]
 FROM OPENQUERY (GSFL2K, '
 				SELECT *
-				FROM OOHEAD
+				FROM OOHEAD oh
+					LEFT JOIN crreason cr ON oh.ohcred = cr.crreas
 				WHERE ohotyp IN(''IR'', ''RI'')
 				ORDER BY ohodat DESC
 				')
