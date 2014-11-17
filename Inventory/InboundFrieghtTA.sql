@@ -1,12 +1,13 @@
 USE [GartmanReport]
 GO
 
-/****** Object:  StoredProcedure [dbo].[InboundFrieghtTA]    Script Date: 07/28/2014 10:51:55 ******/
+/****** Object:  StoredProcedure [dbo].[InboundFrieghtTA]    Script Date: 11/17/2014 12:22:12 PM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
+
 
 
 
@@ -31,9 +32,12 @@ GO
   
   
   
-alter Proc [dbo].[InboundFrieghtTA] as  
+ALTER Proc [dbo].[InboundFrieghtTA] as  
   
-select OQ.*,MT.MTSTATUS  
+select OQ.*
+		,MT.MTSTATUS 
+		,MT.mttrak# AS Tracking_Number
+
 from openquery(GSFL2K,'  
   
 Select Poline.PLDDAT As DueDate,   
@@ -47,6 +51,7 @@ Poline.PLITEM As SKU,
 Poline.PLDESC As Description,   
 Itemmast.IMCOLR As Color,   
 Poline.PLQORD As UnitsOrdered,  
+
 
 Poline.plqord - ifnull((select sum(pboqty) from poboline
 	where pbco = poline.plco
@@ -99,6 +104,7 @@ Order By Poline.PLDDAT, Vendmast.VMNAME, Poline.PLPO#, Poline.PLITEM
 LEFT join (select * from openquery(GSFL2K,'select * from MANTRACK')) MT on OQ.Manifest = MT.MTMAN#  
 
   
+
 GO
 
 
