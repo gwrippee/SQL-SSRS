@@ -1,0 +1,13 @@
+
+
+-- Query all OOINUSE
+
+CREATE PROC JT_ALL_OOINUSE AS
+BEGIN
+	SELECT * FROM OPENQUERY(GSFL2K,'
+		SELECT * 
+		FROM
+		ooinuse
+	
+		')
+END
