@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
+  <Description>Report by User PARM = USER ID</Description>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="GartmanReports">
@@ -564,6 +565,16 @@
     <ReportParameter Name="prmUser">
       <DataType>String</DataType>
       <Prompt>prmUser:</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="SupressEmail">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>DataSet1</DataSetName>
+          <ValueField>OrderDate</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>SupressEmail</Prompt>
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
