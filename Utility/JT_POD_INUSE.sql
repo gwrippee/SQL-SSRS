@@ -1,7 +1,7 @@
 USE [GartmanReport]
 GO
 
-/****** Object:  StoredProcedure [dbo].[JT_POD_INUSE]    Script Date: 11/13/2014 8:47:24 AM ******/
+/****** Object:  StoredProcedure [dbo].[JT_POD_INUSE]    Script Date: 11/19/2014 9:03:07 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -22,8 +22,14 @@ ALTER PROC [dbo].[JT_POD_INUSE] AS
 BEGIN
 SELECT * 
 FROM OPENQUERY(GSFL2K,'
-	SELECT *
+	SELECT iu.*
+		,oh.ohotyp
+
 	FROM ooinuse iu
+	LEFT JOIN oohead oh ON (oh.ohco = iu.iuco
+						AND oh.ohloc = iu.iuloc
+						AND oh.ohord# = iu.iuord#
+						AND oh.ohrel# = iu.iurel# )
 	
 	WHERE EXISTS
 
