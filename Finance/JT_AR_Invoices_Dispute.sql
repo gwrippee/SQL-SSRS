@@ -30,7 +30,10 @@
 
 ALTER PROC JT_AR_Invoices_Dispute	AS
 BEGIN
-	SELECT * FROM OPENQUERY(GSFL2K,'
+	SELECT qry.*
+	,DATEDIFF(d,qry.aidate,GETDATE()) AS DaysOld
+	
+	 FROM OPENQUERY(GSFL2K,'
 		SELECT 	oico		AS Company
 			,oiloc			AS Branch_Number
 			,oicust			AS Customer_Number
@@ -42,28 +45,29 @@ BEGIN
 
 			,a.oicrcd		AS CreditCode	
 			,c.ACDESC		AS CreditCodeDesc
-			/*--	,a.oiamt		AS Amt	-- */
-			/*--	,a.oinet		AS Net	-- */
-			,b.aiamt		AS Balance
+			,b.aiamt		AS Amount_Due
 			,a.oicomt		AS Comment
 			,a.oislmn		AS Sales_Rep
 			,s.smname		AS Salesman_Name
-
+			,b.aidate
+		
 		FROM openitem a
 		LEFT JOIN ARCRCODE c ON a.oicrcd = c.ACCODE
 		LEFT JOIN custmast m ON a.oicust = m.cmcust
-		LEFT JOIN ARIVBAL b ON (a.oicust = b.aicust AND a.oiinv# = b.aipurg)
+		LEFT JOIN ARIVBAL b ON (a.oicust = b.aicust 
+							AND a.oiinv# = b.aipurg
+							AND a.oidate = b.aidate)
 		LEFT JOIN salesman s ON s.smno = a.oislmn
 
 		WHERE oicrcd !='' ''	/*-- old codes from SSRS “Open Disputed Invoices”  (''FC'',''MC'',''MX'',''VC'') --*/
 			AND b.aiamt != 0.00000	
-		/* --	and a.oiinv# = ''792155''	-- */
-							
-		ORDER BY a.oico
-				,a.oicrcd
-				,b.aiamt DESC
+		/*  	and a.oiinv# = ''177778''	  */
 
-			')
+		/* --   and oicust = ''1020148''	-- */	
+		
+
+			') AS qry
+		ORDER BY DaysOld DESC
 END 
 
 
