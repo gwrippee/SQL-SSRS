@@ -39,6 +39,7 @@ BEGIN
 			,oicust			AS Customer_Number
 			,m.cmname		AS Customer_Name
 			,a.oiinv#		AS Invoice_Number
+			,a.oitype
 
 			,MONTH(a.oidate) ||''/'' || DAY(a.oidate)	/* Format Date *USA */
 				|| ''/'' || YEAR(a.oidate)				AS Invoice_Date
@@ -61,7 +62,7 @@ BEGIN
 
 		WHERE oicrcd !='' ''	/*-- old codes from SSRS “Open Disputed Invoices”  (''FC'',''MC'',''MX'',''VC'') --*/
 			AND b.aiamt != 0.00000	
-		/*  	and a.oiinv# = ''177778''	  */
+		   	and a.oiinv# = ''277658''	   
 
 		/* --   and oicust = ''1020148''	-- */	
 		
