@@ -40,6 +40,7 @@ BEGIN
 			,arh.cscust								AS Cust#
 			,cm.cmname								AS Customer_Name
 			,arh.csinv#								AS Invoice
+			,arh.cschk#								AS Check
 			,MONTH(arh.csdate) || ''/'' ||
 				DAY(arh.csdate) || ''/'' ||
 				YEAR(arh.csdate)					AS Date
@@ -48,7 +49,7 @@ BEGIN
 			,arh.cscomt								AS Comment
 			,arh.csslmn								AS Saleman
 			,sm.smname								AS Name
-			
+		
 
 
 		FROM ARCSHIST arh									/* -- AR Cash Hisotry (after closed cash)	-- */
@@ -60,7 +61,7 @@ BEGIN
 			AND arh.csdate <= ''11/30/2014''
 			AND arh.cscrcd != '' ''							/* -- credit code NOT blank (a reason why)	-- */
 			AND arh.cstype = 2								/* -- payment type [1 = invoice | 2 = payment | 3 = credit adj | 4 = debit adj | 5 = finance chg | 6 = claim] -- */
-
+			AND arh.cschk# LIKE ''GL%''
 			
 
 		ORDER BY arh.cscrcd
