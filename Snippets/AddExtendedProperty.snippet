@@ -42,14 +42,14 @@
         </Literal>
       </Declarations>
       <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[EXEC sys.sp_addextendedproperty 
-  @name=N'MS_Description', 
-  @value=N'$column_description$' ,
-  @level0type=N'$l0t$', 
-  @level0name=N'$schema$', 
-  $CARET$@level1type=N'$l1t$', 
-  @level1name=N'$table_name$', 
-  @level2type=N'$l2t$', 
-  @level2name=N'$column_name$'
+	  @name = N'MS_Description'
+	, @value = N'$column_description$' 
+	, @level0type = N'$l0t$'
+	, @level0name = N'$schema$'
+	, $CARET$@level1type = N'$l1t$'
+	, @level1name = N'$table_name$'
+	, @level2type = N'$l2t$'
+	, @level2name = N'$column_name$'
 GO]]></Code>
     </Snippet>
   </CodeSnippet>

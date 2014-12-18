@@ -2,9 +2,9 @@
 <CodeSnippets>
   <CodeSnippet Format="1.0.0">
     <Header>
-      <Title>DropFunction</Title>
-      <Shortcut>DropFunction</Shortcut>
-      <Description>Drop a function if it is already exists.</Description>
+      <Title>DropView</Title>
+      <Shortcut>DropView</Shortcut>
+      <Description>Drop a view if it is already exists.</Description>
       <Author>Devart</Author>
       <SnippetTypes>
         <SnippetType>Expansion</SnippetType>
@@ -17,12 +17,12 @@
           <Default>dbo</Default>
         </Literal>
         <Literal>
-          <ID>function_name</ID>
-          <Default>function_name</Default>
+          <ID>view_name</ID>
+          <Default>view_name</Default>
         </Literal>
       </Declarations>
-      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[IF OBJECT_ID('$schema$.$function_name$') IS NOT NULL
-	DROP FUNCTION $schema$.$function_name$
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[IF OBJECT_ID('$schema$.$view_name$', 'V') IS NOT NULL
+	DROP VIEW $schema$.$view_name$
 GO
 
 $CARET$]]></Code>

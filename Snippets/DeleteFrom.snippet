@@ -2,9 +2,9 @@
 <CodeSnippets>
   <CodeSnippet Format="1.0.0">
     <Header>
-      <Title>DropFunction</Title>
-      <Shortcut>DropFunction</Shortcut>
-      <Description>Drop a function if it is already exists.</Description>
+      <Title>DeleteFrom</Title>
+      <Shortcut>DeleteFrom</Shortcut>
+      <Description>DELETE FROM fragment.</Description>
       <Author>Devart</Author>
       <SnippetTypes>
         <SnippetType>Expansion</SnippetType>
@@ -17,15 +17,12 @@
           <Default>dbo</Default>
         </Literal>
         <Literal>
-          <ID>function_name</ID>
-          <Default>function_name</Default>
+          <ID>table_name</ID>
+          <Default>table_name</Default>
         </Literal>
       </Declarations>
-      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[IF OBJECT_ID('$schema$.$function_name$') IS NOT NULL
-	DROP FUNCTION $schema$.$function_name$
-GO
-
-$CARET$]]></Code>
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[DELETE FROM $schema$.$table_name$
+WHERE $CARET$]]></Code>
     </Snippet>
   </CodeSnippet>
 </CodeSnippets>

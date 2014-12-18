@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>sl</Title>
+      <Shortcut>sl</Shortcut>
+      <Description>Select From OpenQuery to GSFL2K</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>file</ID>
+          <ToolTip>File from Gartman</ToolTip>
+          <Default>file</Default>
+        </Literal>
+        <Literal>
+          <ID>WHERE</ID>
+          <ToolTip>WHERE</ToolTip>
+          <Default>WHERE</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL Server" Kind="SQL Server"><![CDATA[SELECT *
+FROM OPENQUERY(GSFL2K,'
+	SELECT * 
+	FROM $file$
+	$WHERE$
+')
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

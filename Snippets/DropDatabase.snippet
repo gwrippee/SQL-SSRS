@@ -17,15 +17,13 @@
           <Default>database_name</Default>
         </Literal>
       </Declarations>
-      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[USE master
+      <Code Language="SQL Server" Kind="SQL Server"><![CDATA[USE [master]
 GO
 
-IF  EXISTS (
-	SELECT name 
-		FROM sys.databases 
-		WHERE name = N'$database_name$'
-)
-DROP DATABASE $database_name$
+IF DB_ID('$database_name$') IS NOT NULL BEGIN
+	--ALTER DATABASE [$database_name$] SET SINGLE_USER WITH ROLLBACK IMMEDIATE
+	DROP DATABASE [$database_name$]
+END
 GO
 
 $CARET$]]></Code>

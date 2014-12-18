@@ -3,7 +3,7 @@
   <CodeSnippet Format="1.0.0">
     <Header>
       <Title>CreateClrProcedure</Title>
-      <Shortcut>clrp</Shortcut>
+      <Shortcut>CreateClrProcedure</Shortcut>
       <Description>Create a CLR stored procedure.</Description>
       <Author>Devart</Author>
       <SnippetTypes>
@@ -33,18 +33,14 @@
           <Default>method_name</Default>
         </Literal>
       </Declarations>
-      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[-- Date $DATE$ $TIME$
--- Database '$DB$'
-
-CREATE PROCEDURE $schema$.$procedure_name$ 
+      <Code Language="SQL Server" Kind="SQL Server"><![CDATA[CREATE PROCEDURE $schema$.$procedure_name$ 
 (
-	$CARET$--@parameter_name AS data_type ( = default_value ), ...
+	$CARET$
+)
 -- WITH ENCRYPTION, RECOMPILE, EXECUTE AS CALLER|SELF|OWNER| 'user_name'
 AS
-  EXTERNAL NAME $assembly_name$.$class_name$.$method_name$
-GO
-
-]]></Code>
+	EXTERNAL NAME $assembly_name$.$class_name$.$method_name$
+GO]]></Code>
     </Snippet>
   </CodeSnippet>
 </CodeSnippets>

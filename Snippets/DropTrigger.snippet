@@ -2,9 +2,9 @@
 <CodeSnippets>
   <CodeSnippet Format="1.0.0">
     <Header>
-      <Title>While</Title>
-      <Shortcut>While</Shortcut>
-      <Description>While loop</Description>
+      <Title>DropTrigger</Title>
+      <Shortcut>DropTrigger</Shortcut>
+      <Description />
       <Author>Devart</Author>
       <SnippetTypes>
         <SnippetType>Expansion</SnippetType>
@@ -13,14 +13,15 @@
     <Snippet>
       <Declarations>
         <Literal>
-          <ID>boolean_expression</ID>
-          <Default>TRUE</Default>
+          <ID>trigger_name</ID>
+          <Default>trigger_name</Default>
         </Literal>
       </Declarations>
-      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[WHILE $boolean_expression$ BEGIN  
-	$CARET$
-END
-]]></Code>
+      <Code Language="SQL Server" Kind="SQL Server"><![CDATA[IF OBJECT_ID('$trigger_name$', 'TR') IS NOT NULL
+	DROP TRIGGER $trigger_name$
+GO
+
+$CARET$]]></Code>
     </Snippet>
   </CodeSnippet>
 </CodeSnippets>

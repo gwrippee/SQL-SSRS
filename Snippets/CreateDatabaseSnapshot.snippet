@@ -29,23 +29,22 @@
           <Default>source_database_name</Default>
         </Literal>
       </Declarations>
-      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[USE master
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[USE [master]
 GO
 
-IF EXISTS(SELECT name FROM sys.databases WHERE name = '$database_snapshot_name$')
-  DROP DATABASE $database_snapshot_name$
+IF DB_ID('$database_snapshot_name$') IS NOT NULL
+	DROP DATABASE [$database_snapshot_name$]
 GO
 
-CREATE DATABASE $database_snapshot_name$
-ON 
-    (
-    NAME = $logical_file_name$,
-    FILENAME = '$os_file_name$'
-    )$CARET$ -- [ ,...n ] 
-AS SNAPSHOT OF $source_database_name$
+CREATE DATABASE [$database_snapshot_name$]
+ON (
+	NAME = $logical_file_name$,
+	FILENAME = '$os_file_name$'
+)$CARET$
+AS SNAPSHOT OF [$source_database_name$]
 GO
 
-USE $database_snapshot_name$
+USE [$database_snapshot_name$]
 GO]]></Code>
     </Snippet>
   </CodeSnippet>

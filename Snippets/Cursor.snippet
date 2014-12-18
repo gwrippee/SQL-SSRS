@@ -18,37 +18,41 @@
         </Literal>
         <Literal>
           <ID>type</ID>
-          <Default>int</Default>
+          <Default>INT</Default>
         </Literal>
         <Literal>
           <ID>cursor_name</ID>
-          <Default>cursor_name</Default>
+          <Default>cur</Default>
         </Literal>
         <Literal>
-          <ID>statement</ID>
-          <Default>* FROM</Default>
+          <ID>schema</ID>
+          <Default>dbo</Default>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table_name</Default>
         </Literal>
       </Declarations>
-      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[DECLARE $variable$ $type$;
+      <Code Language="SQL Server" Kind="SQL Server"><![CDATA[DECLARE $variable$ $type$
 
-DECLARE $cursor_name$ CURSOR FAST_FORWARD READ_ONLY FOR
-SELECT $statement$
+DECLARE $cursor_name$ CURSOR FAST_FORWARD READ_ONLY LOCAL FOR
+	SELECT *
+	FROM $schema$.$table_name$
 
-OPEN $cursor_name$;
+OPEN $cursor_name$
 
-FETCH NEXT FROM $cursor_name$ INTO $variable$;
+FETCH NEXT FROM $cursor_name$ INTO $variable$
 
-WHILE @@FETCH_STATUS = 0
-BEGIN
+WHILE @@FETCH_STATUS = 0 BEGIN
 
-$CARET$
+	$CARET$
 
-FETCH NEXT FROM $cursor_name$ INTO $variable$;
+	FETCH NEXT FROM $cursor_name$ INTO $variable$
 
 END
 
-CLOSE $cursor_name$;
-DEALLOCATE $cursor_name$;]]></Code>
+CLOSE $cursor_name$
+DEALLOCATE $cursor_name$]]></Code>
     </Snippet>
   </CodeSnippet>
 </CodeSnippets>

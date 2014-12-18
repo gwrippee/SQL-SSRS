@@ -2,9 +2,9 @@
 <CodeSnippets>
   <CodeSnippet Format="1.0.0">
     <Header>
-      <Title>DropFunction</Title>
-      <Shortcut>DropFunction</Shortcut>
-      <Description>Drop a function if it is already exists.</Description>
+      <Title>IfExists</Title>
+      <Shortcut>IfExists</Shortcut>
+      <Description>Check if rows exists.</Description>
       <Author>Devart</Author>
       <SnippetTypes>
         <SnippetType>Expansion</SnippetType>
@@ -17,15 +17,18 @@
           <Default>dbo</Default>
         </Literal>
         <Literal>
-          <ID>function_name</ID>
-          <Default>function_name</Default>
+          <ID>table_name</ID>
+          <Default>table_name</Default>
         </Literal>
       </Declarations>
-      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[IF OBJECT_ID('$schema$.$function_name$') IS NOT NULL
-	DROP FUNCTION $schema$.$function_name$
-GO
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[IF EXISTS(
+	SELECT 1
+	FROM $schema$.$table_name$
+) BEGIN
 
-$CARET$]]></Code>
+	$CARET$
+
+END]]></Code>
     </Snippet>
   </CodeSnippet>
 </CodeSnippets>

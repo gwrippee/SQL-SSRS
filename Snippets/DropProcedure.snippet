@@ -21,13 +21,8 @@
           <Default>procedure_name</Default>
         </Literal>
       </Declarations>
-      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[IF EXISTS (
-  SELECT * 
-    FROM INFORMATION_SCHEMA.ROUTINES 
-   WHERE SPECIFIC_SCHEMA = N'$schema$'
-     AND SPECIFIC_NAME = N'$procedure_name$' 
-)
-   DROP PROCEDURE $schema$.$procedure_name$
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[IF OBJECT_ID('$schema$.$procedure_name$') IS NOT NULL
+	DROP PROCEDURE $schema$.$procedure_name$
 GO
 
 $CARET$]]></Code>

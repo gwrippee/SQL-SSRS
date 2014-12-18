@@ -2,9 +2,9 @@
 <CodeSnippets>
   <CodeSnippet Format="1.0.0">
     <Header>
-      <Title>DropTable</Title>
-      <Shortcut>DropTable</Shortcut>
-      <Description>Drop a table if it is already exists.</Description>
+      <Title>DropTempTable</Title>
+      <Shortcut>DropTempTable</Shortcut>
+      <Description>Drop a temporary table if it is already exists.</Description>
       <Author>Devart</Author>
       <SnippetTypes>
         <SnippetType>Expansion</SnippetType>
@@ -13,16 +13,12 @@
     <Snippet>
       <Declarations>
         <Literal>
-          <ID>schema</ID>
-          <Default>dbo</Default>
-        </Literal>
-        <Literal>
           <ID>table_name</ID>
           <Default>table_name</Default>
         </Literal>
       </Declarations>
-      <Code Language="SQL Server" Kind="SQL Server"><![CDATA[IF OBJECT_ID('$schema$.$table_name$', 'U') IS NOT NULL
-	DROP TABLE $schema$.$table_name$
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[IF OBJECT_ID('tempdb.dbo.#$table_name$') IS NOT NULL
+	DROP TABLE #$table_name$
 GO
 
 $CARET$]]></Code>

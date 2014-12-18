@@ -30,17 +30,26 @@
         </Literal>
         <Literal>
           <ID>col_name</ID>
-          <Default>ID</Default>
+          <Default>col_name</Default>
         </Literal>
         <Literal>
           <ID>sort</ID>
           <Default>ASC</Default>
         </Literal>
+        <Literal>
+          <ID>index_name</ID>
+          <Default>index_name</Default>
+        </Literal>
+        <Literal>
+          <ID>col_name2</ID>
+          <Default>col_name2</Default>
+        </Literal>
       </Declarations>
-      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[CREATE UNIQUE NONCLUSTERED INDEX
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[CREATE UNIQUE NONCLUSTERED INDEX $index_name$
 ON $schema$.$table_name$ (
-   $col_name$ $sort$ $CARET$-- , ..., columnN ( ASC | DESC ] 
+	$col_name$ $sort$ $CARET$-- , ..., columnN ( ASC | DESC ] 
 )
+--INCLUDE ($col_name2$ $CARET$-- , ..., columnN)
 --WITH PAD_INDEX
 --    , FILLFACTOR = $fillfactor$
 --    , IGNORE_DUP_KEY
@@ -48,8 +57,7 @@ ON $schema$.$table_name$ (
 --    , STATISTICS_NORECOMPUTE
 --    , SORT_IN_TEMPDB  -- [ ,...n ]
 -- ON $filegroup_name$
-GO
-]]></Code>
+GO]]></Code>
     </Snippet>
   </CodeSnippet>
 </CodeSnippets>

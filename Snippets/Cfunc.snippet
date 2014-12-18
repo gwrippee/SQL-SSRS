@@ -29,18 +29,14 @@
           <Default>dbo</Default>
         </Literal>
       </Declarations>
-      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[-- Date $DATE$ $TIME$
--- Database '$DB$'
-
-CREATE FUNCTION $schema$.$function_name$($CARET$
-				--@function_parameter datatype, ...
-				)
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[CREATE FUNCTION $schema$.udf_$function_name$
+(
+	$CARET$
+)
 -- WITH ENCRYPTION, SCHEMABINDING, EXECUTE AS CALLER|SELF|OWNER|USER
 RETURNS $return_type$
-AS
-BEGIN
-  
-  RETURN
+AS BEGIN
+	RETURN
 END
 GO]]></Code>
     </Snippet>

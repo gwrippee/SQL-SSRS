@@ -21,98 +21,48 @@
           <Default>database_name</Default>
         </Literal>
         <Literal>
-          <ID>logical_file_name1</ID>
-          <Default>logical_file_name1</Default>
-        </Literal>
-        <Literal>
-          <ID>logical_file_name2</ID>
-          <Default>logical_file_name2</Default>
-        </Literal>
-        <Literal>
-          <ID>os_file_name1</ID>
-          <Default>os_file_name1</Default>
-        </Literal>
-        <Literal>
-          <ID>os_file_name2</ID>
-          <Default>os_file_name2</Default>
-        </Literal>
-        <Literal>
           <ID>max_size</ID>
           <Default>UNLIMITED</Default>
         </Literal>
         <Literal>
           <ID>log_size</ID>
-          <Default>512 KB</Default>
+          <Default>1 MB</Default>
         </Literal>
         <Literal>
           <ID>growth_increment</ID>
           <Default>10%</Default>
         </Literal>
         <Literal>
-          <ID>filegroup_name</ID>
-          <Default>filegroup_name</Default>
-        </Literal>
-        <Literal>
-          <ID>db_chaining</ID>
-          <Default>OFF</Default>
-        </Literal>
-        <Literal>
-          <ID>trustworthy</ID>
-          <Default>OFF</Default>
-        </Literal>
-        <Literal>
-          <ID>collation_name</ID>
-          <Default>collation_name</Default>
+          <ID>collate</ID>
+          <Default>Latin1_General_CI_AS</Default>
         </Literal>
       </Declarations>
-      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[USE master
+      <Code Language="SQL Server" Kind="SQL Server"><![CDATA[USE [master]
 GO
 
-IF EXISTS(SELECT name FROM sys.databases WHERE name = '$database_name$')
-  DROP DATABASE $database_name$
+IF DB_ID('$database_name$') IS NOT NULL BEGIN
+	--ALTER DATABASE [$database_name$] SET SINGLE_USER WITH ROLLBACK IMMEDIATE
+	DROP DATABASE [$database_name$]
+END
 GO
 
-CREATE DATABASE $database_name$
-ON
-PRIMARY (
-  NAME = $logical_file_name1$,
-  FILENAME = '$os_file_name1$',
-  SIZE = $db_size$,
-  MAXSIZE = $max_size$,
-  FILEGROWTH = $growth_increment$
-) $CARET$--[ ,...n ]
---, FILEGROUP $filegroup_name$ [ CONTAINS FILESTREAM ] [ DEFAULT ]
+CREATE DATABASE [$database_name$]
+--ON PRIMARY (
+--	SIZE = $db_size$,
+--	MAXSIZE = $max_size$,
+--	FILEGROWTH = $growth_increment$
+--) 
+--LOG ON
 --(
---    NAME = $logical_file_name1$ ,
---    FILENAME = '$os_file_name1$' 
---    [ , SIZE = $db_size$ ]
---    [ , MAXSIZE = $max_size$ ] 
---    [ , FILEGROWTH = $growth_increment$ ]
+--	SIZE = $log_size$,
+--	MAXSIZE = $max_size$,
+--	FILEGROWTH = $growth_increment$
 --)
-LOG ON
-(
-  NAME = $logical_file_name2$,
-  FILENAME = '$os_file_name2$',
-  SIZE = $log_size$,
-  MAXSIZE = $max_size$,
-  FILEGROWTH = $growth_increment$
-) --[ ,...n ]
---COLLATE $collation_name$
---WITH
---  DB_CHAINING $db_chaining$
---  TRUSTWORTHY $trustworthy$
---FOR LOAD
---FOR ATTACH
---WITH
---  ENABLE_BROKER
---  NEW_BROKER
---  ERROR_BROKER_CONVERSATIONS
---FOR ATTACH_REBUILD_LOG
+--COLLATE $collate$
 GO
 
-USE $database_name$
-GO
-]]></Code>
+USE [$database_name$]
+GO]]></Code>
     </Snippet>
   </CodeSnippet>
 </CodeSnippets>

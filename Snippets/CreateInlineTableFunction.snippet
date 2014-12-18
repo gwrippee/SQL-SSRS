@@ -17,24 +17,29 @@
           <Default>function_name</Default>
         </Literal>
         <Literal>
-          <ID>query_specification</ID>
-          <Default>query_specification</Default>
-        </Literal>
-        <Literal>
-          <ID>schema</ID>
+          <ID>schema_name1</ID>
           <Default>dbo</Default>
         </Literal>
+        <Literal>
+          <ID>schema_name2</ID>
+          <Default>dbo</Default>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table_name</Default>
+        </Literal>
       </Declarations>
-      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[-- Date $DATE$ $TIME$
--- Database '$DB$'
-
-CREATE FUNCTION $schema$.$function_name$($CARET$
-				--@function_parameter datatype, ...
-				)
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[CREATE FUNCTION $schema_name1$.udf_$function_name$
+(
+	$CARET$
+)
 RETURNS TABLE
 --WITH ENCRYPTION|SCHEMABINDING, EXECUTE AS CALLER|SELF|OWNER|USER
 AS
-RETURN ( SELECT $query_specification$ )
+RETURN ( 
+	SELECT * 
+	FROM $schema_name2$.$table_name$
+)
 GO]]></Code>
     </Snippet>
   </CodeSnippet>

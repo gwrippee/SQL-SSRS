@@ -2,9 +2,9 @@
 <CodeSnippets>
   <CodeSnippet Format="1.0.0">
     <Header>
-      <Title>While</Title>
-      <Shortcut>While</Shortcut>
-      <Description>While loop</Description>
+      <Title>RowNumber</Title>
+      <Shortcut>RowNumber</Shortcut>
+      <Description>ROW_NUMBER fragment.</Description>
       <Author>Devart</Author>
       <SnippetTypes>
         <SnippetType>Expansion</SnippetType>
@@ -13,14 +13,11 @@
     <Snippet>
       <Declarations>
         <Literal>
-          <ID>boolean_expression</ID>
-          <Default>TRUE</Default>
+          <ID>column_name</ID>
+          <Default>column_name</Default>
         </Literal>
       </Declarations>
-      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[WHILE $boolean_expression$ BEGIN  
-	$CARET$
-END
-]]></Code>
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[RowNum = ROW_NUMBER() OVER (ORDER BY $column_name$)]]></Code>
     </Snippet>
   </CodeSnippet>
 </CodeSnippets>

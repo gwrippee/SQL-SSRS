@@ -20,16 +20,19 @@
           <ID>schema</ID>
           <Default>dbo</Default>
         </Literal>
+        <Literal>
+          <ID>function_name</ID>
+          <Default>function_name</Default>
+        </Literal>
       </Declarations>
-      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[CREATE FUNCTION $schema$.$function_name$($CARET$
-				--@function_parameter datatype, ...
-				)
+      <Code Language="SQL Server" Kind="SQL Server"><![CDATA[CREATE FUNCTION $schema$.udf_$function_name$
+(
+	$CARET$
+)
 RETURNS @$return_variable$ TABLE
 --WITH ENCRYPTION|SCHEMABINDING, EXECUTE AS CALLER|SELF|OWNER|USER
-AS
-BEGIN
-  
-  RETURN
+AS BEGIN
+	RETURN
 END
 GO]]></Code>
     </Snippet>

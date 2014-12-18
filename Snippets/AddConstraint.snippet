@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <CodeSnippets>
   <CodeSnippet Format="1.0.0">
     <Header>
@@ -25,9 +25,11 @@
           <Default>table_name</Default>
         </Literal>
       </Declarations>
-      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[ALTER TABLE $schema$.$table_name$
-  ADD CONSTRAINT CK_$table_name$_$column_name$ CHECK ($column_name$ $CARET$> 0 and $column_name$ < 1000000)
-GO]]></Code>
+      <Code Language="SQL Server" Kind="SQL Server"><![CDATA[ALTER TABLE $schema$.$table_name$
+	ADD CONSTRAINT CK_$table_name$_$column_name$ 
+	CHECK ($column_name$ > 0)
+GO
+$CARET$]]></Code>
     </Snippet>
   </CodeSnippet>
 </CodeSnippets>

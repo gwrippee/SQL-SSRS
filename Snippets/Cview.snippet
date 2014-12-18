@@ -13,7 +13,11 @@
     <Snippet>
       <Declarations>
         <Literal>
-          <ID>schema</ID>
+          <ID>schema_name1</ID>
+          <Default>dbo</Default>
+        </Literal>
+        <Literal>
+          <ID>schema_name2</ID>
           <Default>dbo</Default>
         </Literal>
         <Literal>
@@ -21,15 +25,16 @@
           <Default>view_name</Default>
         </Literal>
         <Literal>
-          <ID>query specification</ID>
-          <Default>* FROM</Default>
+          <ID>table_name</ID>
+          <Default>table_name</Default>
         </Literal>
       </Declarations>
-      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[CREATE VIEW $schema$.$view_name$ $CARET$--(column [ ,...n ] )
+      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[CREATE VIEW $schema_name1$.vw_$view_name$
 --WITH ENCRYPTION, SCHEMABINDING, VIEW_METADATA
 AS
-	SELECT $query specification$
--- WITH CHECK OPTION
+	SELECT * 
+	FROM $schema_name2$.$table_name$
+	--WITH CHECK OPTION
 GO
 ]]></Code>
     </Snippet>

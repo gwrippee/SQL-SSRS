@@ -2,9 +2,9 @@
 <CodeSnippets>
   <CodeSnippet Format="1.0.0">
     <Header>
-      <Title>While</Title>
-      <Shortcut>While</Shortcut>
-      <Description>While loop</Description>
+      <Title>ts</Title>
+      <Shortcut>ts</Shortcut>
+      <Description>TESTSIDE SELECT for Gartman File</Description>
       <Author>Devart</Author>
       <SnippetTypes>
         <SnippetType>Expansion</SnippetType>
@@ -13,13 +13,16 @@
     <Snippet>
       <Declarations>
         <Literal>
-          <ID>boolean_expression</ID>
-          <Default>TRUE</Default>
+          <ID>file</ID>
+          <ToolTip>file in Gartman</ToolTip>
+          <Default>file</Default>
         </Literal>
       </Declarations>
-      <Code Language="SQL (Devart)" Kind="MS SQL"><![CDATA[WHILE $boolean_expression$ BEGIN  
-	$CARET$
-END
+      <Code Language="SQL Server" Kind="SQL Server"><![CDATA[SELECT *
+FROM OPENQUERY(TSGSFL2K,'
+	SELECT * 
+	FROM $file$
+')
 ]]></Code>
     </Snippet>
   </CodeSnippet>
