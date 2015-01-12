@@ -35,4 +35,5 @@ FROM OPENQUERY(GSFL2K,'
 
 	ORDER BY shco
 			,shloc
+			,shord#
 ')
