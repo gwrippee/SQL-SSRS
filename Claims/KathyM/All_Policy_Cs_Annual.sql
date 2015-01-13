@@ -3,7 +3,7 @@
 --
 -- James Tuttle 01/12/2015
 ---------------------------------------------
--- Purpose: All "Policy" CMs
+-- Purpose: All "Policy" CMs Annual
 ---------------------------------------------
 SELECT *
 FROM OPENQUERY(GSFL2K,'
@@ -19,11 +19,11 @@ FROM OPENQUERY(GSFL2K,'
 /** ---------------------------------------------------------- **/
 /*		   ,shemds							AS Sell				*/
 /*		   ,shcost							AS Cost				*/
-/*		   ,shspc1							AS Delv_Charge		*/
-/*		   ,shspc2							AS Restock			*/
-/*		   ,shspc3							AS Discount			*/
-/*		   ,shspc4							AS Frt_Handlng		*/
-/*		   ,shspc5							AS Fuel_Surchg		*/		
+		   ,shspc1							AS Delv_Charge		
+		   ,shspc2							AS Restock			
+		   ,shspc3							AS Discount			
+		   ,shspc4							AS Frt_Handlng		
+		   ,shspc5							AS Fuel_Surchg				
 /** ---------------------------------------------------------- **/
 
 		   ,slpric							AS Price
