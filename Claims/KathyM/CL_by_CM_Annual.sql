@@ -3,7 +3,7 @@
 --
 -- James Tuttle 01/12/2015
 ---------------------------------------------
--- Purpose: All of "CL" Credits by CM#
+-- Purpose: All of "CL" Credits by CM# Annual
 ---------------------------------------------
 SELECT *
 FROM OPENQUERY(GSFL2K,'
