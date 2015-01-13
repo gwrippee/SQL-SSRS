@@ -24,13 +24,22 @@ FROM OPENQUERY(GSFL2K,'
 /*		   ,shspc3							AS Discount			*/
 /*		   ,shspc4							AS Frt_Handlng		*/
 /*		   ,shspc5							AS Fuel_Surchg		*/		
+/** ---------------------------------------------------------- **/
 
+		   ,slpric							AS Price
+		   ,slcost							AS Cost
 		   ,shref#							AS Orig_Inv	
 		   ,shcust							AS Customer
 		   ,cmname							AS Name
 
 		    
 	FROM shhead sh
+	LEFT JOIN shline sl ON (sh.shco = sl.slco
+						AND sh.shloc = sl.slloc
+						AND sh.shord# = sl.slord#
+						AND sh.shrel# = sl.slrel#
+						AND sh.shinv# = sl.slinv#
+						AND sh.shidat = sl.sldate )
 	LEFT JOIN custmast cm ON cm.cmcust = sh.shcust
 
 	WHERE shpeyr = ''2014''
@@ -38,4 +47,6 @@ FROM OPENQUERY(GSFL2K,'
 
 	ORDER BY shco
 			,shloc
+			,shord#
+			,shrel#
 ')
