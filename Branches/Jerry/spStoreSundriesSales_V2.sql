@@ -1,12 +1,13 @@
 USE [GartmanReport]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spStoreSundriesSales]    Script Date: 1/15/2015 3:12:10 PM ******/
+/****** Object:  StoredProcedure [dbo].[spStoreSundriesSales]    Script Date: 1/19/2015 9:46:05 AM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
+
 
 
 /* Division 6 thru 9 Sales Report
@@ -42,7 +43,7 @@ LEFT join location L on (L.lcco = slco and L.lcloc = slloc)
 /* Change to static years due to the Excel spreadsheet	*/
 /* not dynamically changing the Year Title				*/
 /* ---------------------------------------------------	*/
-where YEAR(SHiDAT) IN (''2012'',''2013'',''2014'')
+where YEAR(SHiDAT) IN (''2013'',''2014'',''2015'')
 
 
 /* (SHiDAT) in (year(CURDATE()),year(CURDATE()) - 1,year(CURDATE()) - 2) */
@@ -57,6 +58,7 @@ year(shidat),
 month(shidat)
 
 ')
+
 
 
 
