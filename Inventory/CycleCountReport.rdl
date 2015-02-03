@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
-  <Description>RF PI’S Only</Description>
+  <Description>Included PICOUNTHST (though it summarizes) for the branches to be included too.[Colleen]</Description>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="GartmanReports">
@@ -193,6 +193,7 @@
                                   <Value>=Sum(Fields!Value.Value)</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <Format>n2</Format>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
