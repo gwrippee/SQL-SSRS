@@ -59,24 +59,30 @@ i1.IMMD2,
 i1.imfact,
 i1.imfac2,
 i1.imcost,
-sum(SLECST+SLESC1+SLESC2+SLESC3+SLESC4+SLESC5) as SOCOGS,
+sum(SLECST+SLESC1+SLESC2+SLESC3+SLESC4+SLESC5) as SOCOGS
 
-ifnull((select sum(PBOQTY)
+,ifnull((select sum(PBOQTY)
 		from poboline 
 		join itemmast i3 on i3.imitem = pbitem
-		where PBITEM = i1.imitem),0) as BOQty,
+		where PBITEM = i1.imitem),0) as BOQty
 		
-ifnull((select sum(sleprc)
+,ifnull((select sum(sleprc)
 		from shline sl 
 		where sl.slitem = i1.imitem
 		and year(SLDATE) = year(current_date)),0) as YTDSales
 
-, slqord	AS Qty_Ordered
+/*------  Get the last three months QTY ------------------------------------------------------------*/
+/*SELECT LAST_DAY(CURRENT_DATE - 1 MONTH) AS End_date, --> last months last day						*/
+/*																									*/
+/*LAST_DAY(CURRENT_DATE - 4 MONTH) + 1 DAY AS start_date --> three months back first day			*/
+/*------------------------------------------------------------------------------------------------- */
 
 ,ifnull((select sum(slqord)
 		from shline sl 
 		where sl.slitem = i1.imitem
-		and year(SLDATE) = year(current_date)),0) as YTD_QTY
+			and sldate >= LAST_DAY(CURRENT_DATE - 4 MONTH) + 1 DAY 
+			and sldate <= LAST_DAY(CURRENT_DATE - 1 MONTH)
+			),0) AS Month_3_back
 
 
 from shline
@@ -90,6 +96,8 @@ where SLDATE >= ''''' + @StartDate + '''''
  and i1.imfmcd not in (''''L2'''',''''W2'''')
  and i1.imdrop <> ''''D''''
 
+  AND i1.imitem = ''''LOGVWC60208P19''''
+
 group by i1.imvend,
 i1.imfmcd,
 i1.imitem,
@@ -99,8 +107,8 @@ i1.IMMD,
 i1.IMMD2,
 i1.imfact,
 i1.imfac2,
-i1.imcost,
-slqord
+i1.imcost
+
 
 '') OQ;
 
@@ -114,4 +122,5 @@ exec(@sql)
 GO
 
 -- spCOGSForecastUnits '11/01/2014', '01/31/2015'
+
 
