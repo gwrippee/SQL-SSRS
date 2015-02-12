@@ -96,7 +96,7 @@ where SLDATE >= ''''' + @StartDate + '''''
  and i1.imfmcd not in (''''L2'''',''''W2'''')
  and i1.imdrop <> ''''D''''
 
-  AND i1.imitem = ''''LOGVWC60208P19''''
+  /* AND i1.imitem = ''''WPVISION503''''	*/
 
 group by i1.imvend,
 i1.imfmcd,
