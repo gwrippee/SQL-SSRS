@@ -40,15 +40,13 @@ FROM OPENQUERY(tsGSFL2K,'
 
 		  ,oleprc		AS Line_Ext_Price
 		  ,olesp1		AS Line_Ext_Cut_Chg
-		  ,olesp2
-		  ,olesp3
-		  ,olesp4
-		  ,olesp5
+		  ,olesp2		AS Line_Ext_Frt_Hndl
+		  ,olesp3		AS Line_Ext_Overbill_trip
+		  ,olesp4		AS Line_Ext_Manuf_Rebate
+		  ,olesp5		AS Line_Ext_Buying_Grp_Rbt
 
-		  ,''''		AS rebate
-
-		  ,''''				AS tl_loads
-		  ,''''			AS trip
+		  ,olexldamt	AS Line_Ext_tl_loads
+		  ,olextucp 	AS Line_Ext_trip
 
 		
 
