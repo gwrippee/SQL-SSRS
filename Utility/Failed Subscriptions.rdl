@@ -22,7 +22,8 @@ left join ReportServer..reportschedule as Sched on Sched.subscriptionid = s.subs
 
 WHERE LEFT (S.LastStatus, 12) != 'Mail sent to'
 AND LEFT (S.LastStatus, 12) != 'New Subscrip'
-and s.LastStatus not like '%SuppressEmail%'</CommandText>
+and s.LastStatus not like '%SuppressEmail%'
+AND LEFT(S.LastStatus,12) NOT LIKE ''</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
