@@ -11,6 +11,16 @@ FROM OPENQUERY(GSFL2K,'
 				,slecst as extened_cost
 				,shuser as user
 
+				,CASE 
+					WHEN sh.shcred = '''' THEN ''*** NO CREDIT CODE USED ***''
+					ELSE sh.shcred
+				 END as credit_codes
+
+				,CASE
+					WHEN cr.crrdes IS NULL THEN ''*** NO CREDIT CODE USED ***''
+					ELSE cr.crrdes
+				 END as Credit_Code_Desc
+
 	FROM shhead sh
 	LEFT JOIN shline sl ON ( sh.shco = sl.slco
 		    AND sh.shloc = sl.slloc
@@ -19,6 +29,7 @@ FROM OPENQUERY(GSFL2K,'
 		    AND sh.shcust = sl.slcust 
 		    AND sh.shinv# = sl.slinv# )
 	LEFT JOIN itemmast im ON sl.slitem = im.imitem 
+	LEFT JOIN crreason cr ON cr.crreas = sh.shcred
 
 	WHERE sl.slbyp = ''N''
 /* -------------------------------------------------------------------------*/
