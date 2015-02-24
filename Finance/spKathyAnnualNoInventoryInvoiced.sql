@@ -1,6 +1,4 @@
 
-
-
 SELECT *
 FROM OPENQUERY(GSFL2K,'
 	SELECT shotyp as order_type
@@ -29,15 +27,12 @@ FROM OPENQUERY(GSFL2K,'
 			AND  YEAR(sh.shidat) = ''2014''
 /* -------------------------------------------------------------------------*/
 /*	Added order type "FN" due to it being Finance Charges that happen		*/
-/*  behind the scenes.														*/
+/*  behind the scenes.	And "MM"											*/
 /* -------------------------------------------------------------------------*/
-			AND sh.shotyp NOT IN(''CL'', ''FC'',''FN'',''MM'')
+			AND sh.shotyp NOT IN(''CL'', ''FC'',''FN'',''MM'',''SA'',''DP'',''IR'')
 			AND im.imsi != ''O''
-			AND sh.shcred NOT IN (''MP'',''AP'')
+			AND sh.shcred NOT IN (''MP'',''AP'',''PE'')
 
 	ORDER BY shco
 			,shloc
 ')
-
-
-
