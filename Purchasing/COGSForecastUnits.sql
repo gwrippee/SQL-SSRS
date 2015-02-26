@@ -71,7 +71,8 @@ sum(SLECST+SLESC1+SLESC2+SLESC3+SLESC4+SLESC5) as SOCOGS
 		where sl.slitem = i1.imitem
 		and year(SLDATE) = year(current_date)),0) as YTDSales
 
-/*------  Get the last three months QTY ------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------*/
+/* Get the last three months QTY																	*/
 /*SELECT LAST_DAY(CURRENT_DATE - 1 MONTH) AS End_date, --> last months last day						*/
 /*																									*/
 /*LAST_DAY(CURRENT_DATE - 4 MONTH) + 1 DAY AS start_date --> three months back first day			*/
