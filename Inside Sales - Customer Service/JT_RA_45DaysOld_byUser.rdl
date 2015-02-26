@@ -566,7 +566,7 @@
       <DataType>String</DataType>
       <Prompt>prmUser:</Prompt>
     </ReportParameter>
-    <ReportParameter Name="SupressEmail">
+    <ReportParameter Name="SuppressEmail">
       <DataType>String</DataType>
       <DefaultValue>
         <DataSetReference>
@@ -574,7 +574,7 @@
           <ValueField>OrderDate</ValueField>
         </DataSetReference>
       </DefaultValue>
-      <Prompt>SupressEmail</Prompt>
+      <Prompt>SuppressEmail</Prompt>
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
