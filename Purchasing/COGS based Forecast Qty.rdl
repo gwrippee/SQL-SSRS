@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
+  <Description>Based off Units</Description>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="DataSource1">
@@ -22,12 +23,12 @@
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
         <CommandText>spCOGSForecastUnits</CommandText>
-        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="spCOGSForecastUnits"><Parameter Name="@StartDate"><Value>11/01/2014</Value></Parameter><Parameter Name="@EndDate"><Value>01/31/2015</Value></Parameter></SProc></Functions><SelectedColumns><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="IMVEND" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="IMFMCD" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="IMITEM" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="IMDESC" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="IMCOLR" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="IMMD" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="IMMD2" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="IMFACT" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="IMFAC2" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="IMCOST" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="SOCOGS" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="BOQTY" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="YTDSALES" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="QTY_ORDERED" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="YTD_QTY" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="BOValue" /></SelectedColumns></QueryDefinition></rd:DesignerState>
+        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="spCOGSForecastUnits"><Parameter Name="@StartDate"><Value>11/01/2014</Value></Parameter><Parameter Name="@EndDate"><Value>01/31/2015</Value></Parameter></SProc></Functions><SelectedColumns><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="IMVEND" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="IMFMCD" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="IMITEM" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="IMDESC" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="IMCOLR" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="IMMD" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="IMMD2" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="IMFACT" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="IMFAC2" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="IMCOST" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="SOCOGS" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="BOQTY" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="YTDSALES" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="MONTH_3_BACK" /><ColumnExpression ColumnOwner="spCOGSForecastUnits" ColumnName="BOValue" /></SelectedColumns></QueryDefinition></rd:DesignerState>
       </Query>
       <Fields>
         <Field Name="IMVEND">
           <DataField>IMVEND</DataField>
-          <rd:UserDefined>true</rd:UserDefined>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="IMFMCD">
           <DataField>IMFMCD</DataField>
@@ -77,16 +78,12 @@
           <DataField>YTDSALES</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="QTY_ORDERED">
-          <DataField>QTY_ORDERED</DataField>
+        <Field Name="MONTH_3_BACK">
+          <DataField>MONTH_3_BACK</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="BOValue">
           <DataField>BOValue</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="YTD_QTY">
-          <DataField>YTD_QTY</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
@@ -444,7 +441,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>YTD QTY ORDERED</Value>
+                                  <Value>3 Months Back</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontSize>11pt</FontSize>
@@ -846,14 +843,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="YTD_QTY">
+                        <Textbox Name="MONTH_3_BACK">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!YTD_QTY.Value</Value>
+                                  <Value>=Fields!MONTH_3_BACK.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Color>#4d4d4d</Color>
@@ -865,7 +862,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>YTD_QTY</rd:DefaultName>
+                          <rd:DefaultName>MONTH_3_BACK</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#e5e5e5</Color>
@@ -923,7 +920,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=SUM(Fields!YTD_QTY.Value + Fields!BOQTY.Value)</Value>
+                                  <Value>=SUM(Fields!MONTH_3_BACK.Value + Fields!BOQTY.Value)</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <Color>#4d4d4d</Color>
