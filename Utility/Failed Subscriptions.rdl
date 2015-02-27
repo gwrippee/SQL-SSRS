@@ -12,18 +12,8 @@
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>GartmanReports</DataSourceName>
-        <CommandText>SELECT C.Name, S.LastRunTime, S.LastStatus, S.Description, sched.scheduleid
-
-FROM ReportServer..Subscriptions AS S
-LEFT OUTER JOIN ReportServer..[Catalog] AS C ON C.ItemID = S.Report_OID
-
-left join ReportServer..reportschedule as Sched on Sched.subscriptionid = s.subscriptionid
-
-
-WHERE LEFT (S.LastStatus, 12) != 'Mail sent to'
-AND LEFT (S.LastStatus, 12) != 'New Subscrip'
-and s.LastStatus not like '%SuppressEmail%'
-AND LEFT(S.LastStatus,12) NOT LIKE ''</CommandText>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>spFailedSubscriptions</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
