@@ -53,3 +53,18 @@ SELECT olrloc [Location]
  FROM tbl
  GROUP BY olrloc
  ---------------------------------------------------------------------------------------------	
+ -- #4 Invoice table
+ SELECT *
+FROM (
+    SELECT 
+        year(invoiceDate) as [year],left(datename(month,invoicedate),3)as [month], 
+        InvoiceAmount as Amount 
+    FROM Invoice
+) as s
+PIVOT
+(
+    SUM(Amount)
+    FOR [month] IN (jan, feb, mar, apr, 
+    may, jun, jul, aug, sep, oct, nov, dec)
+)AS pivot
+---------------------------------------------------------------------------------------------
