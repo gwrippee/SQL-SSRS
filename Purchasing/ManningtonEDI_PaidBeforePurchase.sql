@@ -1,3 +1,13 @@
+USE [GartmanReport]
+GO
+
+/****** Object:  StoredProcedure [dbo].[ManningtonEDI_PaidBeforePurchase]    Script Date: 3/3/2015 9:51:55 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
 /*********************************************************************************
 **																				**
 ** SR# XXXXX																	**
@@ -11,7 +21,7 @@
 **																				**
 **********************************************************************************/
 
-ALTER PROC ManningtonEDI_PaidBeforePurchase AS
+ALTER PROC [dbo].[ManningtonEDI_PaidBeforePurchase] AS
 BEGIN
  SELECT OQ.*,MT.MTSTATUS
  FROM OPENQUERY(GSFL2K,'
@@ -81,3 +91,6 @@ BEGIN
 
  LEFT JOIN GSFL2K.B107Fd6E.GSFL2K.MANTRACK MT ON Manifest = MT.MTMAN#
 END
+GO
+
+
