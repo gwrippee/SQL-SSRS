@@ -6,4 +6,6 @@ ON C.ItemID = S.Report_OID
 
 left join ReportServer..reportschedule as Sched on Sched.subscriptionid = s.subscriptionid
 
-WHERE s.ExtensionSettings like '%thomasv%'
+WHERE s.ExtensionSettings like '%willc@tasupply.com%'
+
+-- adriennel@tasupply.com
