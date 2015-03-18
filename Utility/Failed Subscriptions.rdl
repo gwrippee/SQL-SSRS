@@ -482,6 +482,18 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="SuppressEmail">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>DataSet1</DataSetName>
+          <ValueField>Name</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>SuppressEmail</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportServerUrl>http://sql01/ReportServer</rd:ReportServerUrl>
   <rd:ReportID>3ab512cf-3494-4cbf-88ad-9700824c21d0</rd:ReportID>
