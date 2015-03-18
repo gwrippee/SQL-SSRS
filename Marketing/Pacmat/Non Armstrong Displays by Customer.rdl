@@ -18,8 +18,8 @@
           </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>uspArmstrongDisplaysByCustomer</CommandText>
-        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="uspArmstrongDisplaysByCustomer"><Parameter Name="@BillCodes"><Value>AJ</Value></Parameter></SProc></Functions><SelectedColumns><ColumnExpression ColumnOwner="uspArmstrongDisplaysByCustomer" ColumnName="CUSTNUM" /><ColumnExpression ColumnOwner="uspArmstrongDisplaysByCustomer" ColumnName="CUSTNAME" /><ColumnExpression ColumnOwner="uspArmstrongDisplaysByCustomer" ColumnName="CITY" /><ColumnExpression ColumnOwner="uspArmstrongDisplaysByCustomer" ColumnName="STATE" /><ColumnExpression ColumnOwner="uspArmstrongDisplaysByCustomer" ColumnName="SALESMAN" /><ColumnExpression ColumnOwner="uspArmstrongDisplaysByCustomer" ColumnName="BILLCD" /><ColumnExpression ColumnOwner="uspArmstrongDisplaysByCustomer" ColumnName="BILLCDDESC" /><ColumnExpression ColumnOwner="uspArmstrongDisplaysByCustomer" ColumnName="ARMSTRONG_ID" /></SelectedColumns></QueryDefinition></rd:DesignerState>
+        <CommandText>uspNonArmstrongDisplaysByCustomer</CommandText>
+        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><Functions><SProc ColumnOwner="uspNonArmstrongDisplaysByCustomer"><Parameter Name="@BillCodes"><Value>aj</Value></Parameter></SProc></Functions><SelectedColumns><ColumnExpression ColumnOwner="uspNonArmstrongDisplaysByCustomer" ColumnName="CUSTNUM" /><ColumnExpression ColumnOwner="uspNonArmstrongDisplaysByCustomer" ColumnName="CUSTNAME" /><ColumnExpression ColumnOwner="uspNonArmstrongDisplaysByCustomer" ColumnName="CITY" /><ColumnExpression ColumnOwner="uspNonArmstrongDisplaysByCustomer" ColumnName="STATE" /><ColumnExpression ColumnOwner="uspNonArmstrongDisplaysByCustomer" ColumnName="SALESMAN" /><ColumnExpression ColumnOwner="uspNonArmstrongDisplaysByCustomer" ColumnName="BILLCD" /><ColumnExpression ColumnOwner="uspNonArmstrongDisplaysByCustomer" ColumnName="BILLCDDESC" /></SelectedColumns></QueryDefinition></rd:DesignerState>
       </Query>
       <Fields>
         <Field Name="CUSTNUM">
@@ -50,17 +50,13 @@
           <DataField>BILLCDDESC</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ARMSTRONG_ID">
-          <DataField>ARMSTRONG_ID</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
       </Fields>
     </DataSet>
     <DataSet Name="BillCodes">
       <Query>
         <DataSourceName>GartmanReports</DataSourceName>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>BillCodesDescList</CommandText>
+        <CommandText>BillCodesDescListNonArmstrong</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
@@ -735,7 +731,7 @@
       <DataType>String</DataType>
       <DefaultValue>
         <Values>
-          <Value>AJ</Value>
+          <Value>aj</Value>
         </Values>
       </DefaultValue>
       <Prompt>Bill Codes</Prompt>
