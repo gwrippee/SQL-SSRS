@@ -23,6 +23,8 @@ ALTER PROC uspArmstrongDisplaysByCustomer
 	@BillCodes	varchar(2)
 AS
 BEGIN
+	 SET @BillCodes = UPPER(@BillCodes)
+
 	DECLARE @sql varchar(MAX) 
 	SET @sql = 'SELECT *
 	FROM OPENQUERY (GSFL2K,''
@@ -52,6 +54,6 @@ BEGIN
 	EXEC (@sql)
 END
 
---	uspArmstrongDisplaysByCustomer 'AJ'
+--	uspArmstrongDisplaysByCustomer 'Aj'
 -- AU, AH, A0, lc
 --> 32 codes based on the 16037 vendor <--
