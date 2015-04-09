@@ -4,10 +4,12 @@
     <Configuration>
       <Name>Development</Name>
       <Options>
+        <Run64BitRuntime>true</Run64BitRuntime>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>
         <ProgressReporting>true</ProgressReporting>
+        <ParameterConfigurationSensitiveValues />
       </Options>
     </Configuration>
   </Configurations>

@@ -1,7 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{D183A3D8-5FD8-494B-B014-37F57B35E655}") = "Integration Services - Import SalesForce Data", "Integration Services - Import SalesForce Data.dtproj", "{14E0D809-7977-48ED-8D5F-932D068871EB}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Integration Services - Import SalesForce Data", "Integration Services - Import SalesForce Data.dtproj", "{14E0D809-7977-48ED-8D5F-932D068871EB}"
 EndProject
 Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Job Tracking Reports", "..\Job Tracking Reports\Job Tracking Reports.rptproj", "{387A42DE-046C-46E8-BFAC-A91BD6FD385B}"
 EndProject
