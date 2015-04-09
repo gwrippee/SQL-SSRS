@@ -53,6 +53,4 @@ BEGIN
 	EXEC (@sql)
 END
 
---	uspArmstrongDisplaysByCustomer 'Aj'
--- AU, AH, A0, lc
---> 32 codes based on the 16037 vendor <--
+--	uspNonArmstrongDisplaysByCustomer 'Aj'
