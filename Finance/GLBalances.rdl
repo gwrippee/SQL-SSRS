@@ -1840,7 +1840,9 @@
             <TablixRowHierarchy>
               <TablixMembers>
                 <TablixMember>
+                  <FixedData>true</FixedData>
                   <KeepWithGroup>After</KeepWithGroup>
+                  <RepeatOnNewPage>true</RepeatOnNewPage>
                 </TablixMember>
                 <TablixMember>
                   <Group Name="Details" />
@@ -1867,9 +1869,40 @@
       <Width>25.83334in</Width>
       <Page>
         <PageFooter>
-          <Height>0.01042in</Height>
+          <Height>0.29042in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="Textbox4">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Globals!TotalPages</Value>
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox4</rd:DefaultName>
+              <Top>0.125in</Top>
+              <Left>0.69667in</Left>
+              <Height>0.14583in</Height>
+              <Width>1in</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1889,7 +1922,7 @@
       <DataType>String</DataType>
       <DefaultValue>
         <Values>
-          <Value>2012</Value>
+          <Value>=Year(Today())</Value>
         </Values>
       </DefaultValue>
       <Prompt>GLYear</Prompt>
@@ -1899,7 +1932,7 @@
       <Nullable>true</Nullable>
       <DefaultValue>
         <Values>
-          <Value>2012</Value>
+          <Value>=Year(Today())</Value>
         </Values>
       </DefaultValue>
       <AllowBlank>true</AllowBlank>
