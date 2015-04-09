@@ -14,10 +14,10 @@
         <DataSourceName>GartmanReports</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="@StartDate">
-            <Value>=Parameters!StartDate.Value</Value>
+            <Value>=Format(Parameters!StartDate.Value, "MM/dd/yyyy")</Value>
           </QueryParameter>
           <QueryParameter Name="@EndDate">
-            <Value>=Parameters!EndDate.Value</Value>
+            <Value>=Format(Parameters!EndDate.Value, "MM/dd/yyyy")</Value>
           </QueryParameter>
           <QueryParameter Name="@PeriodYear">
             <Value>=Parameters!PeriodYear.Value</Value>
@@ -730,19 +730,19 @@
   </ReportSections>
   <ReportParameters>
     <ReportParameter Name="StartDate">
-      <DataType>String</DataType>
+      <DataType>DateTime</DataType>
       <DefaultValue>
         <Values>
-          <Value>02/01/2012</Value>
+          <Value>=Today()</Value>
         </Values>
       </DefaultValue>
       <Prompt>Start Date</Prompt>
     </ReportParameter>
     <ReportParameter Name="EndDate">
-      <DataType>String</DataType>
+      <DataType>DateTime</DataType>
       <DefaultValue>
         <Values>
-          <Value>02/06/2012</Value>
+          <Value>=Today()</Value>
         </Values>
       </DefaultValue>
       <Prompt>End Date</Prompt>
@@ -751,7 +751,7 @@
       <DataType>String</DataType>
       <DefaultValue>
         <Values>
-          <Value>2012</Value>
+          <Value>=Year(Today())</Value>
         </Values>
       </DefaultValue>
       <Prompt>Period Year</Prompt>
@@ -760,7 +760,7 @@
       <DataType>String</DataType>
       <DefaultValue>
         <Values>
-          <Value>2</Value>
+          <Value>=Month(Today())</Value>
         </Values>
       </DefaultValue>
       <Prompt>Period Month</Prompt>
