@@ -1,7 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{D183A3D8-5FD8-494B-B014-37F57B35E655}") = "DailyHoursImport", "DailyHoursImport\DailyHoursImport.dtproj", "{CD01AC3F-2AFC-4B43-8F19-28A569850C08}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "DailyHoursImport", "DailyHoursImport\DailyHoursImport.dtproj", "{CD01AC3F-2AFC-4B43-8F19-28A569850C08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

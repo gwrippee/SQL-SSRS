@@ -6,11 +6,12 @@
       <Options>
         <CreateDeploymentUtility>true</CreateDeploymentUtility>
         <DeploymentOutputPath>C:\SSIS\Packages\DailyHoursImport\bin</DeploymentOutputPath>
-        <Run64BitRuntime>false</Run64BitRuntime>
+        <Run64BitRuntime>true</Run64BitRuntime>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>
         <ProgressReporting>true</ProgressReporting>
+        <ParameterConfigurationSensitiveValues />
       </Options>
     </Configuration>
   </Configurations>
