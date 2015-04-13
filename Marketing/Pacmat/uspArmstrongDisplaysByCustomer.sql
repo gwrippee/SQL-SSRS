@@ -44,9 +44,8 @@ BEGIN
 			  LEFT JOIN vendcust vc ON vc.vnccust = cm.cmcust
 
 		 WHERE cbblcd =  ' + '''' + '''' + @BillCodes + '''' + ''''	+ '
-
-
-
+			AND vncvend = ''''16037''''
+			
 		ORDER BY smname 
 				,cbcust  
 	'')'
@@ -54,6 +53,9 @@ BEGIN
 	EXEC (@sql)
 END
 
---	uspArmstrongDisplaysByCustomer 'Aj'
+--	uspArmstrongDisplaysByCustomer 'av'
+
 -- AU, AH, A0, lc
 --> 32 codes based on the 16037 vendor <--
+
+-- BillCodesDescList
