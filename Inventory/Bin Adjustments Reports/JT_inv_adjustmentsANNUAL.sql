@@ -51,7 +51,7 @@ SELECT irloc
 FROM itemrech ir
 LEFT JOIN itemmast im ON im.imitem = ir.iritem
 
-WHERE irreason IN(''02'', ''25'', ''16'', ''38'', ''39'', ''PI'', ''52'',''04'')
+WHERE irreason IN(''02'', ''25'', ''16'', ''38'', ''39'', ''PI'', ''52'',''04'',''PE'')
 	AND irdate <= ''12/31/2014''
 	AND irdate >= ''01/01/2014''
 
